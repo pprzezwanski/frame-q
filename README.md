@@ -4,7 +4,12 @@ Promise based task scheduler that prevents overlapping of main tasks with microt
 
 [See living example on ho-gi.com](http://ho-gi.com).
 
-## Easily helps preveting reflows
+## Use Cases:
+
+* **smooth animations:** split js tasks to small chunks not to interupt browsers framerate that is crucial for smooth animations
+* **prevent reflows:** design frame brake after certain task to prevent reflow
+* **basic error handling:** since it is promise based frame-q will not stop on single task error
+* **quickly solve bugs** with option: debug: true frame-q logs all tasks be name or by function what can help to quickly solve errors
 
 ## Really simple yet powerfull API:
 
@@ -16,6 +21,18 @@ Promise based task scheduler that prevents overlapping of main tasks with microt
 
 ```
 $ npm install frame-q
+```
+
+## Important
+
+For successful frame control you have to add all microtasks into frame-q (i.ex. "promise.then".
+
+```javascript
+// instead of:
+promise.then(() => someFn());
+
+// you have to write:
+promise.then(() => fq.add(() => someFn()));
 ```
 
 ## Usage 
@@ -43,24 +60,17 @@ fq.add(() => {
     do smthElse;
     return yetAnotherPromise
   }))
+  .then(() => fq.wait(2000))
   .then(() => fq.add(() => {
     do smthFinal;
   }))
 
 ```
 
-
-## Documentation
-
-Not ready yet.
-
 ## Contributing
 
 frame-q for sure needs more development and any suggestions including pull-requests are more than wellcome.
 
-## Inspiration
-
-Frame-q was inspired by sob.js but is significantly different in almost every detail
 
 ## License
 
