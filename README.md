@@ -6,10 +6,10 @@ Promise based task scheduler that prevents overlapping of main tasks with microt
 
 ## Use Cases:
 
-* **smooth animations:** split js tasks to small chunks not to interupt browsers framerate that is crucial for smooth animations
-* **prevent reflows:** design frame brake after certain task to prevent reflow
-* **basic error handling:** since it is promise based frame-q will not stop on single task error
-* **quickly solve bugs** with option: debug: true frame-q logs all tasks be name or by function what can help to quickly solve errors
+* **Smooth animations:** split js tasks to small chunks not to interupt browsers framerate that is crucial for smooth animations
+* **Prevent reflows:** design frame brake after certain task to prevent reflow
+* **Basic error handling:** since it is promise based frame-q will not stop on single task error
+* **Quickly solve bugs:** with option: debug: true frame-q logs all tasks be name or by function what can help to quickly solve errors
 
 ## Really simple yet powerfull API:
 
