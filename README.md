@@ -1,6 +1,6 @@
-# frame-q &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/pprzezwanski/frame-q/blob/master/LICENSE)
+# frame-q &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/pprzezwanski/frame-q/blob/master/LICENSE) [![Build Status](https://travis-ci.org/pprzezwanski/frame-q.svg?branch=master)](https://travis-ci.com/pprzezwanski/frame-q) [![Coverage Status](https://coveralls.io/repos/github/pprzezwanski/frame-q/badge.svg?branch=master)](https://coveralls.io/github/pprzezwanski/frame-q?branch=master)
 
-Promise based task scheduler that prevents overlapping of main tasks with microtasks and animation tasks and thus giving precise controll over the frame. Its 'add' method returns a promise that will resolve when the tasks reaches its turn in the tasks que. The return value of that task function is resolve value of the promise and if function returns a promise it will be resolve value. This hack lets comfortably redirect microtasks to requestAnimationFrame que.
+Promise based task scheduler that prevents overlapping of main tasks with microtasks and animation tasks and thus giving precise controll over the frame. Its 'add' method returns a promise that will resolve when the tasks reaches its turn in the tasks que. The resolve value of add method's promise is whatever is returned by task function (including a promise). This lets us comfortably redirect microtasks to requestAnimationFrame que.
 
 [See living example on ho-gi.com](http://ho-gi.com).
 
